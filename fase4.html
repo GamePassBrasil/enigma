@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fase 4 - Base64 + Anagrama</title>
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+
+  <h1>Fase 4 - Base64 + Anagrama com Pista</h1>
+
+  <div class="code-box">
+    TyBuYXNjaW1lbnRvIGRvIGRldXMgRm9nbyBjYXVzb3UtbGhlIGEgbW9ydGUu
+  </div>
+
+<div class="caixa-dica">
+  💡 Dica: Decifre o codigo escondido !
+</div>
+
+
+  <input type="text" id="resposta4" placeholder="Digite sua resposta aqui" />
+
+  <br />
+
+  <button onclick="verificarResposta()">Enviar</button>
+
+  <script>
+    const respostaCorreta = "fogo";
+
+    function removerAcentos(texto) {
+      return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function verificarResposta() {
+      const input = document.getElementById("resposta4");
+      if (!input) {
+        alert("Erro: campo de resposta não encontrado!");
+        return;
+      }
+      let valor = removerAcentos(input.value.trim().toLowerCase());
+      let resposta = removerAcentos(respostaCorreta.toLowerCase());
+
+      if (valor === resposta) {
+        window.location.href = "fase5.html";
+      } else {
+        alert("Resposta incorreta! Tente novamente.");
+      }
+    }
+  </script>
+
+</body>
+</html>

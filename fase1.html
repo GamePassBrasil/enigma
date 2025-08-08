@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fase 1 - Enigma</title>
+  <link rel="stylesheet" href="estilo.css" />
+
+  <h1>Fase 1 - Decodificação  </h1>
+
+  <div class="code-box">
+    Vqcybyq
+  </div>
+
+  <div class="caixa-dica">
+  💡 Dica: Lembre-se de prestar atenção nos detalhes e tente usar ferramentas online para ajudar! ( Cifra de cesar )
+
+</div>
+
+  <input type="text" id="resposta1" placeholder="Digite sua resposta aqui" />
+
+  <br />
+
+  <button onclick="verificarResposta()">Enviar</button>
+
+  <script>
+    // Remove acentos e diacríticos para comparação mais segura
+    function removerAcentos(texto) {
+      return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    // Resposta correta para a fase 1
+    const respostaCorreta = "familia";
+
+    function verificarResposta() {
+      const input = document.getElementById("resposta1");
+      if (!input) {
+        alert("Erro: campo de resposta não encontrado!");
+        return;
+      }
+
+      let valor = input.value.trim().toLowerCase();
+      valor = removerAcentos(valor);
+      const resposta = removerAcentos(respostaCorreta.toLowerCase());
+
+      console.log("Digitado:", valor);
+      console.log("Esperado:", resposta);
+
+      if (valor === resposta) {
+        // Redireciona para a próxima fase
+        window.location.href = "fase2.html";
+      } else {
+        alert("Resposta incorreta! Tente novamente.");
+      }
+    }
+  </script>
+
+
+
+</body>
+</html>

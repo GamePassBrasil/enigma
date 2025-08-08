@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fase 7 - Acróstico Final</title>
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+
+  <h1>Fase 6 - Acróstico Final</h1>
+<div class="acrostico-container">
+  <p><span class="letra-inicial">S</span>eguindo cada passo, chegou até aqui.</p>
+  <p><span class="letra-inicial">U</span>m caminho difícil, mas possível.</p>
+  <p><span class="letra-inicial">R</span>evelar a verdade foi sua missão.</p>
+  <p><span class="letra-inicial">P</span>alavras escondidas, códigos, emoção.</p>
+  <p><span class="letra-inicial">R</span>econheça que isso é por um motivo.</p>
+  <p><span class="letra-inicial">E</span>u te admiro mais do que consigo dizer.</p>
+  <p><span class="letra-inicial">S</span>iga o link final. Você merece.</p>
+  <p><span class="letra-inicial">A</span>bra o presente.</p>
+</div>
+
+<div class="caixa-dica">
+  💡 Dica: Ta facil vai !
+</div>
+
+  <input type="text" id="resposta7" placeholder="Digite sua resposta aqui" />
+
+  <br />
+
+  <button onclick="verificarResposta()">Enviar</button>
+
+  <script>
+    const respostaCorreta = "surpresa";
+
+    function removerAcentos(texto) {
+      return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function verificarResposta() {
+      const input = document.getElementById("resposta7");
+      if (!input) {
+        alert("Erro: campo de resposta não encontrado!");
+        return;
+      }
+      let valor = removerAcentos(input.value.trim().toLowerCase());
+      let resposta = removerAcentos(respostaCorreta.toLowerCase());
+
+      if (valor === resposta) {
+        document.body.innerHTML = `
+          <h1 style="color:#00ff00; text-align:center; margin-top:50px;">
+            🎉 Parabéns, você concluiu o desafio! 🎉
+          </h1>
+          <p style="text-align:center; font-family: 'Courier New', monospace; font-size:1.1rem;">
+            <a href="https://youtube.com/seuvideofinal" target="_blank" style="color:#0f0; text-decoration:none;">🎁 Clique aqui para assistir ao vídeo final 🎁</a>
+          </p>
+        `;
+      } else {
+        alert("Resposta incorreta! Tente novamente.");
+      }
+    }
+  </script>
+
+</body>
+</html>

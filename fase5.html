@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fase 5 - Texto Invisível + Palíndromo</title>
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+
+  <h1>Fase 5 - Texto Invisível + Palíndromo</h1>
+
+  <div class="code-box">
+    iganazI ed odreqes ohlo od uecasN
+  </div>
+
+<div class="caixa-dica">
+  💡 Dica: Izanami !
+</div>
+
+  <input type="text" id="resposta5" placeholder="Digite sua resposta aqui" />
+
+  <br />
+
+  <button onclick="verificarResposta()">Enviar</button>
+
+  <script>
+    const respostaCorreta = "Nasceu do olho esquerdo de Izanagi";
+
+    function removerAcentos(texto) {
+      return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function verificarResposta() {
+      const input = document.getElementById("resposta5");
+      if (!input) {
+        alert("Erro: campo de resposta não encontrado!");
+        return;
+      }
+      let valor = removerAcentos(input.value.trim().toLowerCase());
+      let resposta = removerAcentos(respostaCorreta.toLowerCase());
+
+      if (valor === resposta) {
+        window.location.href = "fase6.html";
+      } else {
+        alert("Resposta incorreta! Tente novamente.");
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fase 2 - Cifra Hexadecimal + Base64</title>
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+
+  <h1>Fase 2 - Cifra + Hexadecimal + Base64</h1>
+
+  <div class="code-box">
+    FgQ=
+  </div>
+
+<div class="caixa-dica">
+  💡 Dica: As vezes nem todo começo é facil!
+</div>
+
+  
+  <input type="text" id="resposta2" placeholder="Digite sua resposta aqui" />
+
+  <br />
+
+  <button onclick="verificarResposta()">Enviar</button>
+
+  <script>
+    // Remove acentos e diacríticos para comparação mais segura
+    function removerAcentos(texto) {
+      return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    // Resposta correta para a fase 2
+    const respostaCorreta = "1604";
+
+    function verificarResposta() {
+      const input = document.getElementById("resposta2");
+      if (!input) {
+        alert("Erro: campo de resposta não encontrado!");
+        return;
+      }
+
+      let valor = input.value.trim().toLowerCase();
+      valor = removerAcentos(valor);
+      const resposta = removerAcentos(respostaCorreta.toLowerCase());
+
+      console.log("Digitado:", valor);
+      console.log("Esperado:", resposta);
+
+      if (valor === resposta) {
+        // Redireciona para a próxima fase
+        window.location.href = "fase3.html";
+      } else {
+        alert("Resposta incorreta! Tente novamente.");
+      }
+    }
+  </script>
+
+</body>
+</html>

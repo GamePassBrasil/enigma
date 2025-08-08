@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fase 3 - Binário → Morse → Atbash</title>
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+
+  <h1>Fase 3 - Binário → Morse → Atbash</h1>
+
+  <div class="code-box">
+    00101111 00100000 00101110 00101101 00101110 00101110 00100000 00101111 00100000 00101110 00101101 00101101 00100000 00101110 00101110 00101110 00101101 00100000 00101110 00100000 00101110 00101110 00101110 00101101 00100000 00101110 00101110 00100000 00101111 00100000 00101110 00101101 00101101 00100000 00101110 00101110 00101110 00101101 00100000 00101111 00100000 00101110 00101110 00101101 00101110 00100000 00101101 00101110 00100000 00101111 00100000 00101101 00101110 00101101 00100000 00101101 00101101 00101110 00101110 00100000 00101110 00101101 00101110 
+  </div>
+
+<div class="caixa-dica">
+  💡 Dica: Nem todo codigo é o que parece!
+</div>
+
+
+  <input type="text" id="resposta3" placeholder="Digite sua resposta aqui" />
+
+  <br />
+
+  <button onclick="verificarResposta()">Enviar</button>
+
+  <script>
+    const respostaCorreta = "O DEVER DE UM PAI";
+
+    function removerAcentos(texto) {
+      return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function verificarResposta() {
+      const input = document.getElementById("resposta3");
+      if (!input) {
+        alert("Erro: campo de resposta não encontrado!");
+        return;
+      }
+      let valor = removerAcentos(input.value.trim().toLowerCase());
+      let resposta = removerAcentos(respostaCorreta.toLowerCase());
+
+      if (valor === resposta) {
+        window.location.href = "fase4.html";
+      } else {
+        alert("Resposta incorreta! Tente novamente.");
+      }
+    }
+  </script>
+
+</body>
+</html>

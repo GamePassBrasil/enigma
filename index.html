@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bem-vindo ao Enigma</title>
+  <link rel="stylesheet" href="estilo.css" />
+  <style>
+    /* Estilo extra só para essa página */
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #0f111a;
+      color: #ff00aa;
+      font-family: 'Courier New', monospace;
+      padding: 20px;
+      user-select: none;
+    }
+
+    .container {
+      max-width: 600px;
+      background: #0a0c12;
+      padding: 25px 30px;
+      border-radius: 12px;
+      border: 2px solid #e61506;
+      box-shadow:
+        0 0 10px #00ff0044,
+        inset 0 0 20px #00ff0066;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-shadow:
+        0 0 5px #00ff00,
+        0 0 15px #00ff00;
+    }
+
+    .termos {
+      background: #000d00;
+      color: #f7f8f7;
+      height: 180px;
+      overflow-y: auto;
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid #00ff00;
+      margin-bottom: 25px;
+      text-align: left;
+      white-space: pre-wrap;
+      font-size: 1rem;
+      box-shadow: inset 0 0 15px #00ff0099;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: #00ff00;
+    }
+
+    button {
+      background: linear-gradient(45deg, #003300, #006600);
+      border: 2px solid #00ff00;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 14px 30px;
+      border-radius: 10px;
+      cursor: not-allowed;
+      box-shadow:
+        0 0 15px #00ff0055,
+        0 0 25px #00ff0033 inset;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+      user-select: none;
+      width: 100%;
+      max-width: 250px;
+      margin: auto;
+    }
+
+    button.enabled {
+      cursor: pointer;
+      background: linear-gradient(45deg, #006600, #00ff00);
+      box-shadow:
+        0 0 25px #00ff00ee,
+        0 0 40px #00ff00aa inset;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Bem-vindo ao Enigma</h1>
+
+    <div class="termos" id="caixaTermos">
+      Leia atentamente os termos abaixo antes de continuar:
+      
+      1. Este desafio é DE NIVEL INTERMEDIARIO CRIADO POR SEU FILHO & FEITO APENAS EM 1 NOITE.
+
+      2. Respeite as regras e não compartilhe respostas.
+
+      3. Qualquer tentativa de trapacear invalidará sua participação.
+
+      4. Você tera até 25/12/2025 para finalizar o desafio ou o mesmo sera automaticamente excluido!\n
+
+      5. Não sera tolerado/permitido chantegear , exigir / forçar acesso as rspostas , VOCÊ mesmo deve adquirir-las
+
+      6. Te amo , aproveita e se diverte , ta dificil mais é com amor
+    </div>
+
+    <label>
+      <input type="checkbox" id="checkboxTermos" />
+      Concordo com os termos e condições
+    </label>
+
+    <button id="btnEntrar" disabled>Entrar</button>
+  </div>
+
+  <script>
+    const checkbox = document.getElementById("checkboxTermos");
+    const botao = document.getElementById("btnEntrar");
+
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        botao.disabled = false;
+        botao.classList.add("enabled");
+      } else {
+        botao.disabled = true;
+        botao.classList.remove("enabled");
+      }
+    });
+
+    botao.addEventListener("click", () => {
+      if (!botao.disabled) {
+        window.location.href = "fase1.html";
+      }
+    });
+  </script>
+  
+</body>
+</html>
